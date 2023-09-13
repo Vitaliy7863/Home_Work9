@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class MyHashMap<K, V> {
     private static final int DEFAULT_SIZE = 8;
@@ -41,8 +40,9 @@ public class MyHashMap<K, V> {
     public void clear() {
         if (node != null && size > 0) {
             size = 0;
-            for (int i = 0; i < node.length; i++)
+            for (int i = 0; i < node.length; i++) {
                 node[i] = null;
+            }
         }
     }
 
@@ -57,7 +57,7 @@ public class MyHashMap<K, V> {
             result = node[index].value;
         } else {
             Node<K, V> current = node[index];
-            while (current.next != null ) {
+            while (current.next != null) {
                 if (current.getKey().equals(key)) {
                     result = node[index].next.value;
                     break;
