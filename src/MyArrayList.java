@@ -14,6 +14,9 @@ public class MyArrayList<T> {
     }
 
     public void remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
         for (int i = 0; i < size - index; i++) {
             data[index + i] = data[index + i + 1];
         }
